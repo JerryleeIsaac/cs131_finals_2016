@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 
 import faneallrich_yao.Sys2ODEsRK2;
 
-public class TestCase {
+public class Prob5Test {
 	
 	/* writeCSVFile: ensure that CSV file is still produced regardless of values */
 	@Test
