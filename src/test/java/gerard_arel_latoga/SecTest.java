@@ -10,7 +10,7 @@ public class SecTest {
 	@Test
 	public void correctSecFormula1(){
 		Scanner scanner;
-		File file = new File("src/test/resources/SecTestInput.in");
+		File file = new File("src/test/resources/test_files/demos/Prob5/SecTestInput.in");
 		try {
         	scanner = new Scanner(file);
         	
