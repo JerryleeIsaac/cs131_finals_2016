@@ -25,6 +25,7 @@ public class Prob5Test {
 		Prob5 problem5 = new Prob5();
 		problem5.setProblemParameters();
 		Scanner scanner;
+		String dir = new File( "." ).getCanonicalPath();
 		File file = new File("src/test/resources/test_files/demos/Prob5/Prob5.in");
 		try {
         	scanner = new Scanner(file);
