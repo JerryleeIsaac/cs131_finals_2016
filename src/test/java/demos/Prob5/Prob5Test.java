@@ -26,7 +26,7 @@ public class Prob5Test {
 		problem5.setProblemParameters();
 		Scanner scanner;
 		String dir = new File( "." ).getCanonicalPath();
-		File file = new File("src/test/resources/test_files/demos/Prob5/Prob5.in");
+		File file = new File(dir + "/src/test/resources/test_files/demos/Prob5/Prob5.in");
 		try {
         	scanner = new Scanner(file);
         	double tolerance = 0.0000001;
