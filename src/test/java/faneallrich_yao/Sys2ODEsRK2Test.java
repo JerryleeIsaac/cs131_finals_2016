@@ -18,7 +18,7 @@ public class Sys2ODEsRK2Test {
 	public void correctRK2Formula(){
 		Scanner scanner;
 		Sys2ODEsRK2 sys2 = new Sys2ODEsRK2();
-		File file = new File("src/test/resources/Sys2ODEsRK2TestInput.in");
+		File file = new File("src/test/resources/test_files/demos/Prob5/Sys2ODEsRK2TestInput.in");
 		try {
         	scanner = new Scanner(file);
         	int numberOfTestCases = scanner.nextInt();
