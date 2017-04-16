@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 
 import java.util.*;
 import java.io.File;
-import java.io.FileNotFoundException;
+//import java.io.FileNotFoundException;
 
 import faneallrich_yao.Sys2ODEsRK2;
 
@@ -25,9 +25,9 @@ public class Prob5Test {
 		Prob5 problem5 = new Prob5();
 		problem5.setProblemParameters();
 		Scanner scanner;
+		try {
 		String dir = new File( "." ).getCanonicalPath();
 		File file = new File(dir + "/src/test/resources/test_files/demos/Prob5/Prob5.in");
-		try {
         	scanner = new Scanner(file);
         	double tolerance = 0.0000001;
         	
@@ -68,11 +68,10 @@ public class Prob5Test {
  		
     		
 
-	    } catch (FileNotFoundException e1) {
+	    } catch (Exception e1) {
 	    	    System.out.println("The test input file for Prob5.java could not be found/opened");
 	    	    assertTrue(false);
 	            e1.printStackTrace();
 	    }
 	}
 }
-
