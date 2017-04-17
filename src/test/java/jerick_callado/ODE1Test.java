@@ -19,11 +19,11 @@ public class ODE1Test {
 			String dir = new File( "." ).getCanonicalPath();
 			File in = new File(dir + "/src/test/resources/test_files/jerick_callado/ODE1.in");
 			scan = new Scanner(in);
-			//getting X-values
-			String line = scan.nextLine();
-			double s = ODE1.f(1, 3000, 500);
-			double answer = -1725.00;
-			double a = Double.parseDouble(line);
+			double x = scan.nextDouble();
+			double y = scan.nextDouble();
+			double z = scan.nextDouble();
+			double a = scan.nextDouble();
+			double s = ODE1.f(x,y,z);
 			assertEquals(a,s, 0.0001);
 			
 		} catch (Exception e){
