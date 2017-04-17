@@ -3,20 +3,44 @@ package louie_buera;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import java.io.File;
+import java.util.Scanner;
+
 /**
- * Created by angeloarenas on 21/02/2017.
+ * https://octave.sourceforge.io/interval/package_doc/Root-Finding.html
  */
 
 public class NewtonRootTest {
+
+    private File file = new File("src/test/resources/test_files/louie_buera/NewtonRoot.in");
+    private Scanner scanner;
+
+    public NewtonRootTest() {
+        try {
+            scanner = new Scanner(file);
+        } catch (Exception e) {
+            e.printStackTrace();
+            assertTrue("File input for NewtonRootTest not found", false);
+        }
+    }
+
     @Test
     public void testNewtonPolyExample() {
+        String scanTestNo;
+        do {
+            scanTestNo = scanner.nextLine();
+        } while(!scanTestNo.equals("Test 1"));
+
         double solEst = 1;
         double maxErr = Math.pow(10,-6);
-        int iterMax = 1000;
-        String func = "x^11 - 11";
-        String funcDer = "11 * x^10";
+        int iterMax = scanner.nextInt();
 
-        double expected = 1.2435752279123709;
+        scanner.nextLine();
+
+        String func = scanner.nextLine();
+        String funcDer = scanner.nextLine();
+
+        double expected = scanner.nextDouble();
         double actual = NewtonRoot.NewtonRoot(func, funcDer, solEst, maxErr, iterMax);
 
         assertEquals("Root finder must pass given problem", expected, actual, maxErr);
@@ -24,13 +48,21 @@ public class NewtonRootTest {
     
     @Test
     public void testNewtonLogExample() {
+        String scanTestNo;
+        do {
+            scanTestNo = scanner.nextLine();
+        } while(!scanTestNo.equals("Test 2"));
+
         double solEst = 1;
         double maxErr = Math.pow(10,-6);
-        int iterMax = 1000;
-        String func = "x^2 - ln(x+e)";
-        String funcDer = "2*x - 1/(x+e)";
+        int iterMax = scanner.nextInt();
 
-        double expected = 1.1647372994847358;
+        scanner.nextLine();
+
+        String func = scanner.nextLine();
+        String funcDer = scanner.nextLine();
+
+        double expected = scanner.nextDouble();
         double actual = NewtonRoot.NewtonRoot(func, funcDer, solEst, maxErr, iterMax);
 
         assertEquals("Root finder must pass given problem", expected, actual, maxErr);
@@ -38,13 +70,21 @@ public class NewtonRootTest {
     
     @Test
     public void testNewtonTrigoExample() {
+        String scanTestNo;
+        do {
+            scanTestNo = scanner.nextLine();
+        } while(!scanTestNo.equals("Test 3"));
+
         double solEst = 1;
         double maxErr = Math.pow(10,-6);
-        int iterMax = 1000;
-        String func = "3*(e^(5*x))*sin(-7*x)";
-        String funcDer = "3*5*(e^(5*x))*sin(-7*x) - 7*3*(e^(5*x))*cos(-7*x)";
+        int iterMax = scanner.nextInt();
 
-        double expected = 0.8975979010256554;
+        scanner.nextLine();
+
+        String func = scanner.nextLine();
+        String funcDer = scanner.nextLine();
+
+        double expected = scanner.nextDouble();
         double actual = NewtonRoot.NewtonRoot(func, funcDer, solEst, maxErr, iterMax);
 
         assertEquals("Root finder must pass given problem", expected, actual, maxErr);
@@ -52,19 +92,21 @@ public class NewtonRootTest {
     
     @Test
     public void testNewtonGivenExample() {
+        String scanTestNo;
+        do {
+            scanTestNo = scanner.nextLine();
+        } while(!scanTestNo.equals("Test 4"));
+
         double solEst = 1;
         double maxErr = Math.pow(10,-9);
-        int iterMax = 10;
-        double firstNum = 0;
-        double stepSize = 0.002;
-        double n1 = 2000;
-        double t2 = firstNum + stepSize;
-        double funComponent1 = -(10 * 2000 * ( 1-Math.exp(-3*(t2))) * stepSize) - n1;
-        double funComponent2 = 0.8 * stepSize;
-        String func = "x + (x^(3/2)) * " + funComponent2 + " + " + funComponent1;
-        String funcDer = "1 + (x^(1/2)) * (3/2) * " + funComponent2;
+        int iterMax = scanner.nextInt();
 
-        double expected = 1870.774364300735669531;
+        scanner.nextLine();
+
+        String func = scanner.nextLine();
+        String funcDer = scanner.nextLine();
+
+        double expected = scanner.nextDouble();
         double actual = NewtonRoot.NewtonRoot(func, funcDer, solEst, maxErr, iterMax);
 
         assertEquals("Root finder must pass given problem", expected, actual, maxErr);
